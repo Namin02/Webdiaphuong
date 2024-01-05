@@ -163,6 +163,7 @@ html {
     position: absolute;
     top: 0;
     right: 0;
+    display: none;
 }
 
 #header .search-btn,
@@ -516,11 +517,6 @@ html {
     width: 100%;
 }
 
-/* Map section */
-
-.map-section img {
-    width: 100%;
-}
 
 /* Footer */
 #footer {
