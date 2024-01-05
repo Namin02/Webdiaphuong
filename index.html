@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon"
         href="https://wallpapers.com/images/hd/bts-icon-750-x-1332-wallpaper-tvr1rfsid0ga8432.jpg">
     <!-- Thay đổi logo trên đầu trang web -->
-    <link rel="stylesheet" href="./assets/css/w3_band.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons-font/themify-icons/themify-icons.css">
 </head>
@@ -24,7 +24,7 @@
                 <li><a href="#tour">Tour</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li>
-                    <a href="">
+                    <a href="#">
                         More
                         <i class="nav-arrow-down ti-angle-down"></i>
                     </a>
@@ -40,6 +40,10 @@
             <!-- Begin: Search button-->
             <div class="search-btn">
                 <i class="search-icon ti-search"></i>
+            </div>
+
+            <div id="mobile-menu" class="mobile-menu-btn">
+                <i class="menu-icon ti-menu-alt"></i>
             </div>
             <!-- End: Search button -->
 
@@ -81,9 +85,7 @@
                     <div class="col col-third text-center">
                         <p class="member-name">Name</p>
                         <img src="./assets/img/slider2.jpg" alt="Name" class="member-img">
-
                     </div>
-
                 </div>
             </div>
 
@@ -157,8 +159,8 @@
                                 </div>
                                 <!-- required: bắt buộc người dùng phải nhập đủ thông tin từng ô mới cho submit -->
                                 <div class="col col-half">
-                                    <input type="text" name="" placeholder="Address" required id=""
-                                        class="form-control">
+                                    <input type="email" name="" placeholder="Email" required id="" class="form-control">
+                                    class="form-control">
                                 </div>
 
                             </div>
@@ -250,16 +252,20 @@
     </div>
 
     <script>
+        // getElementById là lấy id của header
         var header = document.getElementById('header');
+        // tên biến phải đặt đúng quy tắc
         var mobileMenu = document.getElementById('mobile-menu');
+        // Lưu giá trị chiều cao của header vào và height = 46px
         var headerHeight = header.clientHeight;
 
-        // Đóng mở mobile menu
+        // Đóng/mở mobile menu
         mobileMenu.onclick = function () {
             var isClosed = header.clientHeight === headerHeight;
             if (isClosed) {
                 header.style.height = 'auto';
             } else {
+                // Khi ấn vào một phần tử menu sẽ ẩn menu
                 header.style.height = null;
             }
         }
@@ -267,7 +273,12 @@
         // Tự động đóng khi chọn menu
         var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
         for (var i = 0; i < menuItems.length; i++) {
-            var menuItems = menuItems[i];
+            // lấy từng thẻ a ra tù tổng số tất cả các thẻ a
+            var menuItem = menuItems[i];
+
+            menuItem.onclick = function () {
+                header.style.height = null;
+            }
         }
     </script>
 
